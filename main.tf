@@ -1,8 +1,11 @@
-resource "local_file" "foo" {
-   content = "foo1!!"
-   filename= "foo1.bar"
+provider "aws" {
+  region = "us-east-1"
 }
-resource "local_file" "foo2" {
-   content = "foo2!!22"
-   filename= "foo2.bar"
+
+resource "aws_instance" "instance1" {
+  ami           = "ami-0c02fb55956c7d316"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "instance3"
+  }
 }
